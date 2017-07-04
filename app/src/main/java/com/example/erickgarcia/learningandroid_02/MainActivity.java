@@ -39,5 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Clickeado: "+names.get(position), Toast.LENGTH_SHORT).show();
             }
         });
+
+        // enlazamos con nuestro adaptador personalizado
+        MyAdapter myAdapter = new MyAdapter(MainActivity.this, R.layout.list_item, this.names);
+        listView.setAdapter(myAdapter);
     }
 }
