@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Created by erickgarcia on 04/07/17.
  * Para que sirve el adpatador customizado exactamente?
+ * Sirve pa meter el list_item customizado
  */
 
 public class MyAdapter extends BaseAdapter {
@@ -49,7 +50,7 @@ public class MyAdapter extends BaseAdapter {
         // copio la vista
         View view = convertView;
 
-        // inflamos la vista que nos ha llegado con nuestro layout personalizado
+        // inflamos la vista que nos ha llegado con nuestro layout personalizado (list_item.xml)
         LayoutInflater layoutInflater = LayoutInflater.from(this.context);
         view = layoutInflater.inflate(R.layout.list_item, null);
 
