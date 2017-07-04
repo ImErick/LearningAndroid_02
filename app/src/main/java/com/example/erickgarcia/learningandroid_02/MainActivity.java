@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         names.add("monse");
         names.add("abril");
 
-        // Adaptador, la forma visual en que mostrare mis datos
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names);
-        listView.setAdapter(adapter);
+        // Adaptador, la forma visual en que mostrare mis datos, este es el basico
+        // ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names);
+        // listView.setAdapter(adapter);
 
         // listener para el click de los elementos del listView
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
