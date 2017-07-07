@@ -2,6 +2,9 @@ package com.example.erickgarcia.learningandroid_02;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -15,6 +18,8 @@ public class GridActivity extends AppCompatActivity {
 
     private GridView gridView;
     private List<String> names;
+    private int counter = 0;
+    private MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +42,28 @@ public class GridActivity extends AppCompatActivity {
         });
 
         // enlazamos con nuestro adaptador personalizado
-        MyAdapter myAdapter = new MyAdapter(this, R.layout.grid_item, names);
+        myAdapter = new MyAdapter(this, R.layout.grid_item, names);
         gridView.setAdapter(myAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.add_item:
+                // añadir nuevo nombre
+                this.names.add("Added name"+(++counter));
+                // notificamos al adaptador
+                this.myAdapter.notifyDataSetChanged();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
